@@ -20,9 +20,9 @@ func Start() {
 	// Handle Routes
 	router.HandleFunc("/", index)
 	router.HandleFunc("/create", createEmployee)
+	router.HandleFunc("/insert", insertEmployee)
 
 	// Initialize server
 	fmt.Printf("Serving on: http://localhost%s\n", port)
 	log.Fatal(http.ListenAndServe(port, router))
 }
-

@@ -8,7 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func dbConnection() (*sql.DB) {
+func dbConnection() *sql.DB {
 	LoadDotEnv("db.env")
 
 	Driver := "mysql"

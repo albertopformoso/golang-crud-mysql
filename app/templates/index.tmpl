@@ -4,6 +4,7 @@
 
     {{ template "header" }}
         <a name="" id="" class="btn btn-primary" href="/create" role="button">Add employee</a>
+
             <table class="table">
                 <thead>
                     <tr>
@@ -13,14 +14,21 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
+
+                {{ range. }}
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Alberto</td>
-                        <td>albertopformoso@gmail.com</td>
-                        <td>Editar | Borrar</td>
+                        <td>{{.Id}}</td>
+                        <td>{{.Name}}</td>
+                        <td>{{.Email}}</td>
+                        <td>
+                        <a name="" id="" class="btn btn-primary" href="/edit?id={{.Id}}" role="button">Edit</a>
+                        <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
+                {{ end }}
+
             </table>
 
     {{ template "footer" }}

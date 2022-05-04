@@ -21,6 +21,7 @@ func Start() {
 	router.HandleFunc("/", index)
 	router.HandleFunc("/create", createEmployee)
 	router.HandleFunc("/insert", insertEmployee)
+	router.HandleFunc("/delete", deleteEmployee)
 
 	// Initialize server
 	fmt.Printf("Serving on: http://localhost%s\n", port)

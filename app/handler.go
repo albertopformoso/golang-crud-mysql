@@ -85,6 +85,51 @@ func deleteEmployee(w http.ResponseWriter, r *http.Request) {
 	}
 
 	deleteRegistry.Exec(employeeId)
-
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
+}
+
+func editEmployee(w http.ResponseWriter, r *http.Request) {
+	employeeId := r.URL.Query().Get("id")
+
+	registry, err := StablishedConnection.Query("SELECT * FROM employees WHERE id=?", employeeId)
+
+	employee := Employee{}
+
+	for registry.Next() {
+		var id int
+		var name, email string
+
+		err = registry.Scan(&id, &name, &email)
+
+		if err != nil {
+			panic(err.Error())
+		}
+
+		employee.Id = id
+		employee.Name = name
+		employee.Email = email
+	}
+
+	tpl.ExecuteTemplate(w, "edit", employee)
+}
+
+func updateEmployee(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		id := r.FormValue("id")
+		name := r.FormValue("name")
+		email := r.FormValue("email")
+
+		name = strings.Title(strings.ToLower(name))
+
+		modifyRegistry, err := StablishedConnection.Prepare("UPDATE employees SET name=?, email=? WHERE id=?")
+
+		if err != nil {
+			fmt.Println("Something went wrong")
+			panic(err.Error())
+		}
+
+		modifyRegistry.Exec(name, email, id)
+
+		http.Redirect(w, r, "/", http.StatusMovedPermanently)
+	}
 }

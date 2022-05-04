@@ -3,7 +3,6 @@
 <html lang="en">
 
     {{ template "header" }}
-        <a name="" id="" class="btn btn-primary" href="/create" role="button">Add employee</a>
 
             <table class="table">
                 <thead>
@@ -22,7 +21,7 @@
                         <td>{{.Name}}</td>
                         <td>{{.Email}}</td>
                         <td>
-                        <a name="" id="" class="btn btn-primary" href="/edit?id={{.Id}}" role="button">Edit</a>
+                        <a name="" id="" class="btn btn-warning" href="/edit?id={{.Id}}" role="button">Edit</a>
                         <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
                         </td>
                     </tr>
@@ -30,7 +29,7 @@
                 {{ end }}
 
             </table>
-
+        <a name="" id="" class="btn btn-primary" href="/create" role="button">Add employee</a>
     {{ template "footer" }}
 
 

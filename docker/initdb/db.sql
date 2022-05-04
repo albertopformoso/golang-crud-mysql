@@ -13,6 +13,8 @@ LOCK TABLES `employees` WRITE;
 
 INSERT INTO `employees` VALUES
     (2000, 'Steve', 'steve@work.com'),
-    (2001, 'Arian', 'arian@work.com');
+    (2001, 'Arian', 'arian@work.com'),
+    (2002, 'Rob', 'rob@work.com'),
+    (2003, 'Samuel', 'samuel@work.com');
 
 UNLOCK TABLES;

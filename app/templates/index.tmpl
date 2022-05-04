@@ -1,0 +1,29 @@
+{{ define "index" }}
+<!doctype html>
+<html lang="en">
+
+    {{ template "header" }}
+        <a name="" id="" class="btn btn-primary" href="/create" role="button">Add employee</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alberto</td>
+                        <td>albertopformoso@gmail.com</td>
+                        <td>Editar | Borrar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+    {{ template "footer" }}
+
+
+{{ end }}
